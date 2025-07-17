@@ -16,9 +16,7 @@ let auth: Auth;
 let db: Firestore;
 let googleProvider: GoogleAuthProvider;
 
-const allConfigSet = Object.values(firebaseConfig).every(Boolean);
-
-if (allConfigSet) {
+if (Object.values(firebaseConfig).every(Boolean)) {
   app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
   auth = getAuth(app);
   db = getFirestore(app);
